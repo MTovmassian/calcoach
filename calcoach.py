@@ -45,52 +45,54 @@ def check(math_result, user_result):
 
 def train_add(*args):
 
-	while True:
-		if len(args) == 0:
-			i1, i2 = random.randrange(10, 100), random.randrange(10, 100)
-		elif len(args) == 2:
-			i1, i2 = args[0], args[1]
-			args = ()
-		
-		print("-"*20)
-		print(prompt_f("{0} + {1} =".format(i1, i2)))
-		
-		user_result = get_user_result(train_add, i1, i2)
-		math_result = i1 + i2
-		check(math_result, user_result)
+	if len(args) == 0:
+		i1, i2 = random.randrange(10, 100), random.randrange(10, 100)
+	elif len(args) == 2:
+		i1, i2 = args[0], args[1]
+		args = ()
+	
+	print("-"*20)
+	print(prompt_f("{0} + {1} =".format(i1, i2)))
+	
+	user_result = get_user_result(train_add, i1, i2)
+	math_result = i1 + i2
+	check(math_result, user_result)
+
+	train_add()
 
 def train_substract(*args):
 
-	while True:
-		if len(args) == 0:
-			i1 = random.randrange(11, 100)
-			i2 = random.randrange(10, i1)
-		elif len(args) == 2:
-			i1, i2 = args[0], args[1]
-			args = ()
-		
-		print(prompt_f("{0} - {1} =".format(i1, i2)))
-		
-		user_result = get_user_result(train_substract, i1, i2)
-		math_result = i1 - i2
-		check(math_result, user_result)
+	if len(args) == 0:
+		i1 = random.randrange(11, 100)
+		i2 = random.randrange(10, i1)
+	elif len(args) == 2:
+		i1, i2 = args[0], args[1]
+		args = ()
+	
+	print(prompt_f("{0} - {1} =".format(i1, i2)))
+	
+	user_result = get_user_result(train_substract, i1, i2)
+	math_result = i1 - i2
+	check(math_result, user_result)
+
+	train_substract()
 
 def train_multiply(*args):
 
-	while True:
-		if len(args) == 0:
-			i1, i2 = random.randrange(10, 100), random.randrange(2, 10)
-		elif len(args) == 2:
-			i1, i2 = args[0], args[1]
-			args = ()
-		
-		print(prompt_f("{0} x {1} =".format(i1, i2)))
-		
-		user_result = get_user_result(train_multiply, i1, i2)
-		math_result = i1 * i2
-		check(math_result, user_result)
+	if len(args) == 0:
+		i1, i2 = random.randrange(10, 100), random.randrange(2, 10)
+	elif len(args) == 2:
+		i1, i2 = args[0], args[1]
+		args = ()
+	
+	print(prompt_f("{0} x {1} =".format(i1, i2)))
+	
+	user_result = get_user_result(train_multiply, i1, i2)
+	math_result = i1 * i2
+	check(math_result, user_result)
+
+	train_multiply()
 
 
 if __name__ == '__main__':
 	start()
-
